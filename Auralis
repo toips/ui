@@ -6,10 +6,10 @@ if getgenv().library ~= nil then
     getgenv().library:Unload();
 end
 
-getgenv().Rift_User = {
+getgenv().Auralis_User = {
     User = "Unknown"
 }
-
+https://raw.githubusercontent.com/toips/ui/refs/heads/main/Auralis
 local HttpService = game:GetService("HttpService")
 local UserID = LRM_LinkedDiscordID
 
@@ -25,11 +25,11 @@ end)
 
 if success then
     local responseData = HttpService:JSONDecode(response.Body)
-    getgenv().Rift_User = {
+    getgenv().Auralis_User = {
         User = responseData.global_name
     }
 else
-    getgenv().Rift_User = {
+    getgenv().Auralis_User = {
         User = "Unknown"
     }
 end
@@ -4593,8 +4593,8 @@ function library:init()
     
     -- Watermark
     do
-        if not Rift_User then
-            getgenv().Rift_User = {
+        if not Auralis_User then
+            getgenv().Auralis_User = {
                 User = "admin"
             }
         end
@@ -4602,7 +4602,7 @@ function library:init()
             objects = {};
             text = {
                 {self.cheatname, true},
-                {("%s"):format(Rift_User.User), true},
+                {("%s"):format(Auralis_User.User), true},
                 {self.gamename, true},
                 {'0 fps', true},
                 {'0ms', true},
